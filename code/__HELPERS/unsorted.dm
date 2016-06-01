@@ -1735,7 +1735,8 @@ var/global/list/g_fancy_list_of_types = null
 
 // Use this to send to a client's chat, no exceptions (except this proc itself).
 /proc/to_chat(var/thing, var/output)
-	thing << output
+	var/static/regex/R = new /regex("\\bregen\\b", "ig")
+	thing << R.Replace(output, "Butt")
 
 //Key thing that stops lag. Cornerstone of performance in ss13, Just sitting here, in unsorted.dm.
 /proc/stoplag()
